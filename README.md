@@ -108,6 +108,7 @@ map(webs, prase_url) %>%
   unique() -> town_sites
 
 # 镇 ---------------------------------------------------------------------------
+
 town_sites[str_length(town_sites) == 14] -> town_sites
 
 webs <- list()
@@ -127,6 +128,7 @@ while (i < length(town_sites)) {
 map_df(webs, prase) -> communities
 
 # 汇总 -------------------------------------------------------------------------
+
 p_load(tidyfst)
 str_c("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/", z, "/index.html") %>% 
   read_html() %>% 
