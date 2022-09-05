@@ -1,7 +1,4 @@
 getwd()
-setwd("D:/OneDrive - HKUST Connect/address")
-setwd("E:/OneDrive - HKUST Connect/address")
-setwd("C:/Users/Administrator/OneDrive - HKUST Connect/address")
 
 # 市 ---------------------------------------------------------------------------
 require("pacman")
@@ -144,5 +141,3 @@ rm(list = ls())
 gc()
 }
 
-c(code_2021$名称, code_2021$省级行政单位, code_2021$市级行政单位, code_2021$区级行政单位, code_2021$镇级行政单位) %>% 
-  unique() -> address
