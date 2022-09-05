@@ -14,6 +14,8 @@ p_load(rvest, httr, tidyverse, progress)
 
 for (z in c(2009：2021)) { 
 
+# 市 ---------------------------------------------------------------------------
+
 str_c("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/", z, "/index.html") %>% 
   read_html("GB18030") %>% 
   html_nodes("a") %>% 
