@@ -1,7 +1,8 @@
 # 中华人民共和国国家统计局统计用区划和城乡划分代码(2009-2021) #
 这是一个基于R的爬虫，用以爬取http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/ 上的所有行政区划信息
 
-# 市 ---------------------------------------------------------------------------
+```{r setup, include=FALSE} 
+
 require("pacman")
 p_load(rvest, httr, tidyverse, progress)
 
@@ -141,4 +142,4 @@ save(code, file = str_c("code", z, ".Rdata"))
 rm(list = ls())
 gc()
 }
-
+```
