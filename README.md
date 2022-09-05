@@ -1,10 +1,14 @@
 # 中华人民共和国国家统计局统计用区划和城乡划分代码(2009-2021) #
-这是一个基于R的爬虫，用以爬取http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/ 上的所有行政区划信息
+这是一个基于R的爬虫，用以爬取http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/ 上的所有行政区划信息w
+It is a web crawler based on R to scrape data from the http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/
 
 ```{r setup, include=FALSE} 
 
 require("pacman")
 p_load(rvest, httr, tidyverse, progress)
+
+# the only thing you gonna do is to execute the loop
+# 你唯一要做的就是启动这个循环
 
 for (z in c(2009：2021)) { 
 
