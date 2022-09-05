@@ -7,7 +7,7 @@ setwd("C:/Users/Administrator/OneDrive - HKUST Connect/address")
 require("pacman")
 p_load(rvest, httr, tidyverse, progress)
 
-for (z in c(2010:2013, 2021)) {
+for (z in c(2009：2021)) { 
 
 str_c("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/", z, "/index.html") %>% 
   read_html("GB18030") %>% 
@@ -53,7 +53,6 @@ prase_url <- function(x) {x %>%
     unlist() %>% 
     unique()}
 
-
 map_df(webs, Prase) -> cities
 map(webs, prase_url) %>% 
   unlist() %>% 
@@ -73,7 +72,6 @@ while (i < length(city_sites)) {
            error = function(e) { webs[[i]] <<- "timed out!"})
   if((webs[[i]] == "timed out!")[1]) {i = i - 1}
 } 
-
 
 map_df(webs, Prase) -> districts
 map(webs, prase_url) %>% 
@@ -109,10 +107,6 @@ webs <- list()
 sites <- c()
 i = 0
 
-#pb <- progress_bar$new(total = length(town_sites), 
-                       #format = " collecting [:bar] :percent in :elapsed",
-                       #clear = FALSE, width= 60) # progress bar
-
 while (i < length(town_sites)) {
   i = i + 1
   str_c("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/", z, "/", str_extract(town_sites[i], "^\\d{2}"), "/", str_sub(town_sites[i], 3, -11), "/", str_sub(town_sites[i], 5, -9), "/", town_sites[i]) -> sites[i]
@@ -121,7 +115,6 @@ while (i < length(town_sites)) {
   tryCatch(sites[i] %>% GET(., timeout(2)) %>% read_html("GB18030") -> webs[[i]],
            error = function(e) { webs[[i]] <<- "timed out!"})
   if((webs[[i]] == "timed out!")[1]) {i = i - 1}
-  #pb$tick()
 } 
 
 map_df(webs, prase) -> communities
